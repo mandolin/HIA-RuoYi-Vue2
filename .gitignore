@@ -19,5 +19,6 @@ selenium-debug.log
 *.sln
 *.local
 
-package-lock.json
+# HIA：本项目提交 npm 锁文件以固定依赖版本；yarn.lock 仍忽略，因为本项目使用 npm。
+# HIA: the npm lockfile is committed here to pin dependency versions; yarn.lock stays ignored because this project uses npm.
 yarn.lock
