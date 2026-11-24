@@ -5,12 +5,18 @@
 @import './sidebar.scss';
 @import './btn.scss';
 
+/* <lang><zh-CN>HIA 字体 token：只声明开源字体名，并以 generic family 收尾。本项目不打包、也不远程加载任何字体文件；未安装这些字体的设备由浏览器回退到系统默认的无衬线或等宽字体。</zh-CN><en>HIA font tokens: open-source family names only, each ending with a generic family. No font file is bundled or loaded remotely; devices without these fonts fall back to the browser's default sans-serif or monospace font.</en></lang> */
+:root {
+  --font-family-sans: "Noto Sans SC", "Source Han Sans SC", "Sarasa Gothic SC", "Liberation Sans", sans-serif;
+  --font-family-monospace: "Sarasa Mono SC", "Liberation Mono", monospace;
+}
+
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-family: var(--font-family-sans);
 }
 
 label {
@@ -104,7 +110,7 @@ aside {
   display: block;
   line-height: 32px;
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-family-sans);
   color: #2c3e50;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

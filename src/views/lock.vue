@@ -183,7 +183,7 @@ export default {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: var(--font-family-sans);
   overflow: hidden;
 }
 

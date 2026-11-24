@@ -204,7 +204,7 @@ export default {
   width: 100%;
   text-align: center;
   color: #fff;
-  font-family: Arial;
+  font-family: var(--font-family-sans);
   font-size: 12px;
   letter-spacing: 1px;
 }
