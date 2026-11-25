@@ -15,6 +15,49 @@
 * 配套后端代码仓库地址[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue) 或 [RuoYi-Vue-fast](https://gitcode.com/yangzongzhuan/RuoYi-Vue-fast) 版本。
 * 阿里云折扣场：[点我进入](http://aly.ruoyi.vip)，腾讯云秒杀场：[点我进入](http://txy.ruoyi.vip)&nbsp;&nbsp;
 
+## 本仓说明
+
+本仓基于 RuoYi-Vue2 的 `master` 分支建立，保留完整上游提交历史，上游地址为 https://gitcode.com/yangzongzhuan/RuoYi-Vue2.git 。基线提交为 `9ec5d1abefd7ca2c2c9ae6ee3c41395b713b1a23`。本仓 `origin` 为 HIA-RuoYi-Vue2，`upstream` 指向上游；后续通过 `git fetch upstream` 吸收上游修复。
+
+上游采用 MIT 许可证。本仓在基线之上补入 `LICENSE` 文件，文本与后端仓一致，未改动上游版权声明。
+
+## 相对基线的本地差异
+
+| 编号 | 内容 | 说明 |
+| --- | --- | --- |
+| `L-001` | 新增 `LICENSE` | 补入 MIT 许可证全文，与后端仓的许可证逐字节相同 |
+| `L-002` | 默认字体栈整改 | 定义 `--font-family-sans` 与 `--font-family-monospace`，把 10 个文件共 14 处字体声明改为引用变量或开源字体栈字面值；不写闭源字体名 |
+| `L-003` | 新增 `package-lock.json`，调整 `.gitignore` | 固定依赖版本；锁文件由 Node 16.20.2、npm 8.19.4 生成，`lockfileVersion` 为 2；依赖地址指向 `registry.npmmirror.com` |
+
+### 字体栈说明
+
+字体栈只使用开源字体名与通用族名；上游源码中的原有注释与许可证未改写。渲染效果受设备已安装字体影响，未安装开源中文字体时会由系统回退字体显示。
+
+### 锁文件说明
+
+锁定的 `node-releases@2.0.65` 声明要求 Node ≥ 18，安装时会出现引擎警告；实测 Node 16.20.2 下生产构建通过。同步上游时若 `package.json` 变化，应重新生成锁文件并复查。
+
+## 本地运行
+
+环境：Node 16.20.2、npm 8.19.4，通过 mise 调用。
+
+```powershell
+mise x node@16.20.2 -- npm install
+mise x node@16.20.2 -- npm run dev
+```
+
+前端开发服务默认端口 80，开发态通过 `/dev-api` 代理到后端 `http://localhost:8080`。生产构建命令为 `mise x node@16.20.2 -- npm run build:prod`。
+
+## 上游同步
+
+```powershell
+git fetch upstream
+git log --oneline HEAD..upstream/master
+git merge upstream/master
+```
+
+同步前先确认本地差异范围；冲突优先在本地新增层解决，不回退上游修复。
+
 # 版本对比
 
 RuoYi-Vue 前端项目的三个主要演进版本，方便你直观对比其技术栈差异（并行开发维护）。
